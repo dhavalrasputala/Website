@@ -117,7 +117,7 @@ function CctvPage({ onNavigate }) {
               <p className="laptop-tag">{item.detail}</p>
               <div className="laptop-footer">
                 <strong>{item.price}</strong>
-                <a>Call to Order</a>
+                <button disable>Call to Order</button>
               </div>
             </article>
           ))}
