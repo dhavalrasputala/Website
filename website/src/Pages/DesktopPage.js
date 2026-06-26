@@ -122,7 +122,7 @@ function DesktopPage({ onNavigate }) {
               </ul>
               <div className="laptop-footer">
                 <strong>{desktop.price}</strong>
-                <a>Call to Order</a>
+                <button disable>Call to Order</button>
               </div>
             </article>
           ))}
