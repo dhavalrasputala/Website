@@ -139,7 +139,7 @@ function ServicePage({ onNavigate }) {
               <p className="laptop-tag">{service.detail}</p>
               <div className="laptop-footer">
                 <strong>{service.price}</strong>
-                <a>Call to Order</a>
+                <button disable>Call to Order</button>
               </div>
             </article>
           ))}
