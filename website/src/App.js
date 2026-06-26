@@ -222,9 +222,9 @@ function HomePage({ onNavigate }) {
             <h2>Need help choosing or repairing your laptop?</h2>
             <p>Stop by our shop for expert advice and fast service.</p>
           </div>
-          <a className="btn btn-primary" href="tel:+919427942094">
-            Call Now on +91 94279 42094
-          </a>
+          <button disable>
+              Call on +91 94279 42094
+              </button>
         </section>
       </main>
 
