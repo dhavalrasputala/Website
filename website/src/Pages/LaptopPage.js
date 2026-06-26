@@ -121,7 +121,7 @@ function LaptopPage({ onNavigate }) {
               </ul>
               <div className="laptop-footer">
                 <strong>{laptop.price}</strong>
-                <a>Call to Order</a>
+                <button disable>Call to Order</button>
               </div>
             </article>
           ))}
