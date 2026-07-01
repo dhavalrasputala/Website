@@ -223,7 +223,7 @@ function HomePage({ onNavigate }) {
             <h2>Need help choosing or repairing your laptop?</h2>
             <p>Stop by our shop for expert advice and fast service.</p>
           </div>
-          <button className="btn-primary">
+          <button className="btn">
               Call on +91 94279 42094
               </button>
         </section>
