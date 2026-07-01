@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 import PrinterPage from './Pages/PrinterPage';
 import AccessoryPage from './Pages/AccessoryPage';
@@ -252,14 +253,30 @@ function HomePage({ onNavigate }) {
 function App() {
   const [page, setPage] = useState('home');
 
-  if (page === 'laptops') return <LaptopPage onNavigate={setPage} />;
-  if (page === 'desktops') return <DesktopPage onNavigate={setPage} />;
-  if (page === 'accessories') return <AccessoryPage onNavigate={setPage} />;
-  if (page === 'cctv') return <CctvPage onNavigate={setPage} />;
-  if (page === 'printers') return <PrinterPage onNavigate={setPage} />;
-  if (page === 'services') return <ServicePage onNavigate={setPage} />;
+  let content;
 
-  return <HomePage onNavigate={setPage} />;
+  if (page === 'laptops') {
+    content = <LaptopPage onNavigate={setPage} />;
+  } else if (page === 'desktops') {
+    content = <DesktopPage onNavigate={setPage} />;
+  } else if (page === 'accessories') {
+    content = <AccessoryPage onNavigate={setPage} />;
+  } else if (page === 'cctv') {
+    content = <CctvPage onNavigate={setPage} />;
+  } else if (page === 'printers') {
+    content = <PrinterPage onNavigate={setPage} />;
+  } else if (page === 'services') {
+    content = <ServicePage onNavigate={setPage} />;
+  } else {
+    content = <HomePage onNavigate={setPage} />;
+  }
+
+  return (
+    <>
+      {content}
+      <Analytics />
+    </>
+  );
 }
 
 export default App;
