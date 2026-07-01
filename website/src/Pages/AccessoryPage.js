@@ -11,7 +11,7 @@ function AccessoryPage({ onNavigate }) {
       <header className="hero hero-small">
         <nav className="navbar">
           <div className="brand">
-            <img className="logo-image" src="/logo.png" alt="Maruti Computers logo" />
+            <img className="logo-image" src="/logo.png" alt="Maruti Computers logo" onClick={() => onNavigate('home')}/>
             <span>Maruti Computers</span>
           </div>
           <div className="nav-links">
