@@ -5,7 +5,6 @@ import { accessories } from '../data/AccessoriesCategories';
 
 function AccessoryPage({ onNavigate }) {
   const [productsOpen, setProductsOpen] = useState(false);
-  const phoneNumber = '+919427942094';
 
   return (
     <div className="page">
