@@ -117,7 +117,9 @@ function CctvPage({ onNavigate }) {
               <p className="laptop-tag">{item.detail}</p>
               <div className="laptop-footer">
                 <strong>{item.price}</strong>
-                <button disable>Call to Order</button>
+                <a className="btn btn-primary small-btn" href={`tel:${phoneNumber}`}>
+                  Call to Order
+                </a>
               </div>
             </article>
           ))}
