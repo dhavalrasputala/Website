@@ -223,7 +223,7 @@ function HomePage({ onNavigate }) {
             <h2>Need help choosing or repairing your laptop?</h2>
             <p>Stop by our shop for expert advice and fast service.</p>
           </div>
-          <a className="btn btn-primary small-btn" href={`tel:${phoneNumber}`}>
+          <a className="btn btn-primary small-btn" href={`tel:${9427942094}`}>
                   Call to Order
                 </a>
         </section>
