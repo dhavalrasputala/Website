@@ -7,6 +7,7 @@ import CctvPage from './Pages/CctvPage';
 import DesktopPage from './Pages/DesktopPage';
 import LaptopPage from './Pages/LaptopPage';
 import ServicePage from './Pages/ServicePage';
+import { Testimonials } from './data/testimonials';
 import { featuredProductCategories } from './data/featuredProductCategories';
 import { FaLaptop, FaTools } from 'react-icons/fa';
 
@@ -36,9 +37,9 @@ const highlights = [
   'Same-day diagnostics for many common issues',
 ];
 
-
 function HomePage({ onNavigate }) {
   const [productsOpen, setProductsOpen] = useState(false);
+  const loopedTestimonials = [...Testimonials, ...Testimonials];
 
   return (
     <div className="page">
@@ -201,6 +202,26 @@ function HomePage({ onNavigate }) {
           </div>
         </section>
 
+        <section id="testimonials" className="section section-alt">
+          <div className="section-heading">
+            <p className="eyebrow">Testimonials</p>
+            <h2>What our customers say</h2>
+          </div>
+
+          <div className="testimonial-viewport" aria-label="Customer testimonials slider">
+            <div className="testimonial-track">
+              {loopedTestimonials.map((testimonial, index) => (
+                <article className="testimonial-card" key={`${testimonial.name}-${index}`}>
+                  <p className="testimonial-quote">“{testimonial.quote}”</p>
+                  <div className="testimonial-author">
+                    <strong>{testimonial.name}</strong>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="about" className="section">
           <div className="section-heading">
             <p className="eyebrow">Why We Stand Out</p>
@@ -238,15 +259,6 @@ function HomePage({ onNavigate }) {
           <div>
             <h4>Address</h4>
             <p>G-40, City Arcade, near DSP Bunglow, Jamnagar-361001</p>
-            <div className="footer-map">
-              <iframe
-                title="Maruti Computers location"
-                src="https://www.google.com/maps?q=G-40%2C%20City%20Arcade%2C%20near%20DSP%20Bunglow%2C%20Jamnagar-361001&output=embed"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-            </div>
           </div>
           <div>
             <h4>Contact</h4>
@@ -254,6 +266,19 @@ function HomePage({ onNavigate }) {
             <p>Email: rasputla@yahoo.co.in</p>
           </div>
         </div>
+        <h3 className='centertext'>LOCATE US AT:</h3>
+        <div className="footer-map">
+              <iframe
+                title="Maruti Computers location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d474.3605236543493!2d70.06932578620903!3d22.4723673480934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39576abcc1edca97%3A0x7fda9f11e65b3e04!2sMaruti%20computer%2Ccomputer-laptop%20shop%2C%20computer%20peripherals%20laptop%20accessories%2Ccomputer%2C%20laptop%20dell%20hp%20lenovo%20repair%2Cjamnagar!5e0!3m2!1sen!2sus!4v1783150967688!5m2!1sen!2sus"
+                width="800"
+                height="600"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </div>
       </footer>
     </div>
   );
