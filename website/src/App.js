@@ -237,7 +237,16 @@ function HomePage({ onNavigate }) {
           </div>
           <div>
             <h4>Address</h4>
-            <p>G-40,City Arcade,near DSP Bunglow,Jamnagar-361001</p>
+            <p>G-40, City Arcade, near DSP Bunglow, Jamnagar-361001</p>
+            <div className="footer-map">
+              <iframe
+                title="Maruti Computers location"
+                src="https://www.google.com/maps?q=G-40%2C%20City%20Arcade%2C%20near%20DSP%20Bunglow%2C%20Jamnagar-361001&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
           </div>
           <div>
             <h4>Contact</h4>
