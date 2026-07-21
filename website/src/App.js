@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import './App.css';
+import Navbar from './components/Navbar';
+import Ticker from './components/Ticker';
+import Footer from './components/Footer';
+import RamSvg from './components/Ramsvg';
 import PrinterPage from './Pages/PrinterPage';
 import AccessoryPage from './Pages/AccessoryPage';
 import CctvPage from './Pages/CctvPage';
@@ -10,23 +14,22 @@ import ServicePage from './Pages/ServicePage';
 import { Testimonials } from './data/testimonials';
 import { featuredProductCategories } from './data/featuredProductCategories';
 import { FaLaptop, FaTools } from 'react-icons/fa';
-
 import { MdBuild } from "react-icons/md";
 
 const services = [
   {
     title: 'New Laptop Sales',
-    icon: <FaLaptop size={32} />,
+    icon: <FaLaptop size={28} />,
     description: 'Browse premium laptops for students, business teams, and creators.',
   },
   {
     title: 'Fast Repairs',
-    icon: <MdBuild size={32} />,
+    icon: <MdBuild size={28} />,
     description: 'Battery, screen, keyboard, and motherboard repair with quick turnaround.',
   },
   {
     title: 'Upgrade & Maintenance',
-    icon: <FaTools size={32} />,
+    icon: <FaTools size={28} />,
     description: 'Boost performance with SSD upgrades, RAM installation, and cleanup.',
   },
 ];
@@ -38,51 +41,22 @@ const highlights = [
 ];
 
 function HomePage({ onNavigate }) {
-  const [productsOpen, setProductsOpen] = useState(false);
   const loopedTestimonials = [...Testimonials, ...Testimonials];
 
   return (
     <div className="page">
       <header className="hero">
-        <nav className="navbar">
-          <div className="brand">
-            <img className="logo-image" src="/logo.png" alt="Maruti Computers logo" />
-            <span>Maruti Computers</span>
-          </div>
-          <div className="nav-links">
-            <button className="nav-btn" onClick={() => onNavigate('home')}>Home</button>
-            <button className="nav-btn" onClick={() => onNavigate('services')}>Services</button>
-            <div className="dropdown">
-              <button className="nav-btn dropdown-toggle" onClick={() => setProductsOpen(!productsOpen)}>
-                Products ▾
-              </button>
-              {productsOpen && (
-                <div className="dropdown-menu">
-                  <button className="dropdown-item" onClick={() => onNavigate('laptops')}>
-                    Laptops
-                  </button>
-                  <button className="dropdown-item" onClick={() => onNavigate('accessories')}>
-                    Accessories
-                  </button>
-                  <button className="dropdown-item" onClick={() => onNavigate('desktops')}>
-                    Desktops
-                  </button>
-                  <button className="dropdown-item" onClick={() => onNavigate('cctv')}>
-                    CCTV
-                  </button>
-                  <button className="dropdown-item" onClick={() => onNavigate('printers')}>
-                    Printers
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-        </nav>
+        <Navbar onNavigate={onNavigate} current="home" />
 
         <div className="hero-content">
           <div>
-            <p className="eyebrow">Laptop Sales & Services</p>
-            <h1>Reliable laptops, fast repairs, and expert support in one place.</h1>
+            <p className="eyebrow"><RamSvg />Laptop Sales & Services</p>
+            <div className="typewriter-container">
+              <span className="typewriter-text line1">Premium tech - Fast fixes - Expert care.</span>
+              <span className="typewriter-text line2">Buy. Repair - Upgrade - Done.</span>
+              <span className="typewriter-text line3">Reliable laptops - rapid repairs.</span>
+              <span className="typewriter-text line4">Your one-stop tech repair hub.</span>
+            </div>
             <p className="hero-text">
               From buying your next laptop to fixing a slow or damaged device, we make tech simple and dependable.
             </p>
@@ -96,11 +70,11 @@ function HomePage({ onNavigate }) {
             </div>
             <div className="hero-stats">
               <div>
-                <strong>500+</strong>
+                <strong>700+</strong>
                 <span>Happy Customers</span>
               </div>
               <div>
-                <strong>4.8/5</strong>
+                <strong>4.9/5</strong>
                 <span>Star Rating On Google</span>
               </div>
               <div>
@@ -113,60 +87,20 @@ function HomePage({ onNavigate }) {
           <div className="hero-card">
             <h3>Why choose us?</h3>
             <ul>
-              <li>Trusted by students, professionals, and small businesses</li>
-              <li>Transparent pricing with no hidden charges</li>
-              <li>Premium laptops and genuine accessories</li>
+              <li><RamSvg /> Trusted by students, professionals, and small businesses</li>
+              <li><RamSvg /> Transparent pricing with no hidden charges</li>
+              <li><RamSvg /> Premium laptops and genuine accessories</li>
             </ul>
           </div>
         </div>
       </header>
-      <div className="ticker" aria-label="Maruti Computers services ticker">
-        <div className="ticker-track">
-          <span className="ticker-item">Laptop Sales</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Fast Repair</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Accessories</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">CCTV Installation</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Printers</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Laptop Sales</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Fast Repair</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Accessories</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">CCTV Installation</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Printers</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Laptop Sales</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Fast Repair</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Accessories</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">CCTV Installation</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Printers</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Laptop Sales</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Fast Repair</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Accessories</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">CCTV Installation</span>
-          <span className="ticker-item">•</span>
-          <span className="ticker-item">Printers</span>
-        </div>
-      </div>
+
+      <Ticker />
+
       <main>
         <section id="services" className="section">
           <div className="section-heading">
-            <p className="eyebrow">Our Services</p>
+            <p className="eyebrow"><RamSvg />Our Services</p>
             <h2>Everything you need for your laptop journey</h2>
           </div>
 
@@ -185,7 +119,7 @@ function HomePage({ onNavigate }) {
 
         <section id="products" className="section section-alt">
           <div className="section-heading">
-            <p className="eyebrow">Featured Products</p>
+            <p className="eyebrow"><RamSvg />Featured Products</p>
             <h2>Explore our latest tech collection</h2>
           </div>
 
@@ -204,7 +138,7 @@ function HomePage({ onNavigate }) {
 
         <section id="testimonials" className="section section-alt">
           <div className="section-heading">
-            <p className="eyebrow">Testimonials</p>
+            <p className="eyebrow"><RamSvg />Testimonials</p>
             <h2>What our customers say</h2>
           </div>
 
@@ -224,7 +158,7 @@ function HomePage({ onNavigate }) {
 
         <section id="about" className="section">
           <div className="section-heading">
-            <p className="eyebrow">Why We Stand Out</p>
+            <p className="eyebrow"><RamSvg />Why We Stand Out</p>
             <h2>Smart tech solutions with personal care</h2>
           </div>
 
@@ -240,46 +174,17 @@ function HomePage({ onNavigate }) {
 
         <section id="contact" className="section contact-section">
           <div>
-            <p className="eyebrow">Visit or Call</p>
+            <p className="eyebrow"><RamSvg />Visit or Call</p>
             <h2>Need help choosing or repairing your laptop?</h2>
             <p>Stop by our shop for expert advice and fast service.</p>
           </div>
           <a className="btn btn-primary small-btn" href={`tel:${9427942094}`}>
-                  Call to Order
-                </a>
+            Call to Order
+          </a>
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="footer-content">
-          <div>
-            <h3>Maruti Computers</h3>
-            <p>Reliable laptop sales, repairs, and service support.</p>
-          </div>
-          <div>
-            <h4>Address</h4>
-            <p>G-40, City Arcade, near DSP Bunglow, Jamnagar-361001</p>
-          </div>
-          <div>
-            <h4>Contact</h4>
-            <p>Phone: +91 94279  42094</p>
-            <p>Email: rasputla@yahoo.co.in</p>
-          </div>
-        </div>
-        <h3 className='centertext'>LOCATE US AT:</h3>
-        <div className="footer-map">
-              <iframe
-                title="Maruti Computers location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d474.3605236543493!2d70.06932578620903!3d22.4723673480934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39576abcc1edca97%3A0x7fda9f11e65b3e04!2sMaruti%20computer%2Ccomputer-laptop%20shop%2C%20computer%20peripherals%20laptop%20accessories%2Ccomputer%2C%20laptop%20dell%20hp%20lenovo%20repair%2Cjamnagar!5e0!3m2!1sen!2sus!4v1783150967688!5m2!1sen!2sus"
-                width="800"
-                height="600"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-              />
-            </div>
-      </footer>
+      <Footer showMap />
     </div>
   );
 }
